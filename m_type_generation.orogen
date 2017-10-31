@@ -1,0 +1,20 @@
+name "m_type_generation"
+# Optionally declare the version number
+# version "0.1"
+
+# If new data types need to be defined, they have to be put in a separate C++
+# header, and this header will be loaded here
+import_types_from "m_type_generationTypes.hpp"
+
+# If this project uses data types that are defined in other oroGen projects,
+# these projects should be imported there as well.
+import_types_from "std"
+
+typekit do
+    type_export_policy :selected
+    opaque_type '/m_type_generation/Opaque',
+        '/m_type_generation/Intermediate'
+    export_types '/m_type_generation/Opaque',
+        '/m_type_generation/Containing'
+end
+
